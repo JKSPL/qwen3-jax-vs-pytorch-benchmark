@@ -1,0 +1,33 @@
+[project]
+name = "qwen3-jax-vs-pytorch-benchmark"
+version = "0.1.0"
+description = "Synthetic Qwen3-style JAX and PyTorch training throughput benchmark"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flax==0.12.7",
+    "jax==0.10.2",
+    "jaxlib==0.10.2",
+    "numpy>=2.2",
+    "optax==0.2.8",
+    "torch==2.12.1",
+    "transformers==5.1.0",
+    "wandb==0.29.0",
+    "wandb-workspaces>=0.2.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0",
+    "ruff>=0.15",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-q", "--strict-config", "--strict-markers"]
